@@ -1,11 +1,12 @@
-import { Fragment } from "react";
-import { Button, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import { Fragment, useState } from 'react'
+import { Button, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 
-export default function SearchForm() {
-  const handleSubmit = (evt: any) => {
-    evt.preventDefault();
-    console.log("clicked the button!");
-  };
+interface SearchFormProps {
+  filterAction: (term: string) => void
+}
+
+export default function SearchForm({ filterAction }: SearchFormProps) {
+  const [searchTerm, setSearchTerm] = useState<string>('')
   return (
     <Fragment>
       <Row tag="section" className="mt-5">
@@ -17,15 +18,26 @@ export default function SearchForm() {
               name="search"
               placeholder="Search for a Product..."
               type="text"
-            ></Input>
+              value={searchTerm}
+              onChange={(evt: any) => {
+                setSearchTerm(evt.target.value)
+              }}
+            />
           </FormGroup>
           <FormGroup>
-            <Button outline block onClick={handleSubmit}>
+            <Button
+              outline
+              block
+              onClick={() => {
+                console.log(searchTerm)
+                filterAction(searchTerm)
+              }}
+            >
               <span>Search</span>
             </Button>
           </FormGroup>
         </Form>
       </Row>
     </Fragment>
-  );
+  )
 }

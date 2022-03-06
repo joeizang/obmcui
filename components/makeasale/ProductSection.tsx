@@ -1,9 +1,20 @@
-import { Row } from "reactstrap";
+import { CardGroup, Row } from "reactstrap";
+import { ProductShape } from "../../pages/make-sale";
+import Product from "./Product";
 
-export default function ProductSection() {
+interface ProductSectionProps {
+  itemsForSale: ProductShape[];
+}
+export default function ProductSection({ itemsForSale }: ProductSectionProps) {
   return (
     <Row tag="section">
-      <h2>ProductSection</h2>
+      <CardGroup>
+        {itemsForSale.length > 0
+          ? itemsForSale.map((item) => (
+              <Product key={item.productId} product={item} />
+            ))
+          : null}
+      </CardGroup>
     </Row>
   );
 }
