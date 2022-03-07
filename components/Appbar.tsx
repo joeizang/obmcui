@@ -1,4 +1,4 @@
-import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from "reactstrap";
+import { Button, Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap'
 
 export default function Appbar() {
   return (
@@ -14,7 +14,10 @@ export default function Appbar() {
         <NavItem>
           <NavLink href="/products">Summary</NavLink>
         </NavItem>
+        <NavItem>
+          <Button>Cart</Button>
+        </NavItem>
       </Nav>
     </Navbar>
-  );
+  )
 }
