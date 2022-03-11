@@ -20,6 +20,8 @@ let defaultProducts = [
     QuantityInStock: 10,
     dateSupplied: new Date(),
     productId: 1,
+    total: 0,
+    Quantity: 0
   },
   {
     productName: 'Pet Sprite',
@@ -28,6 +30,8 @@ let defaultProducts = [
     QuantityInStock: 10,
     dateSupplied: new Date(),
     productId: 2,
+    total: 0,
+    Quantity: 0
   },
   {
     productName: 'Plastic Chairs',
@@ -36,6 +40,8 @@ let defaultProducts = [
     QuantityInStock: 9,
     dateSupplied: new Date(),
     productId: 3,
+    total: 0,
+    Quantity: 0
   },
   {
     productName: 'Tea Mug',
@@ -44,6 +50,8 @@ let defaultProducts = [
     QuantityInStock: 8,
     dateSupplied: new Date(),
     productId: 4,
+    total: 0,
+    Quantity: 0
   },
   {
     productName: 'Non Stick Frying Pan',
@@ -52,6 +60,8 @@ let defaultProducts = [
     QuantityInStock: 5,
     dateSupplied: new Date(),
     productId: 5,
+    total: 0,
+    Quantity: 0
   },
 ]
 

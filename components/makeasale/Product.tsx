@@ -10,6 +10,7 @@ export default function Product({ product }: ProductProps) {
   const [value, setValue] = useLocalStorage<ProductShape[]>('shopCart', [])
   const [buttonText, setButtonText] = useState('Buy')
   const [buttonColor, setButtonColor] = useState('secondary')
+  const [disableButton, setDisableButton] = useState(false)
   return (
     <Fragment>
       <Card className="shadow rounded mb-3">
@@ -25,6 +26,7 @@ export default function Product({ product }: ProductProps) {
           <Button
             color={buttonColor}
             block
+            disabled={disableButton}
             onClick={(e) => {
               setButtonText('Bought')
               setButtonColor('warning')
@@ -32,6 +34,7 @@ export default function Product({ product }: ProductProps) {
               currentCart.push(product)
               console.log('currentCart looks like this ', currentCart)
               setValue(currentCart)
+              setDisableButton(true)
             }}
           >
             {buttonText}

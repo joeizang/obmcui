@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react'
-import ProductSection from '../components/makeasale/ProductSection'
 import SearchForm from '../components/makeasale/SearchForm'
 
 export interface ProductShape {
@@ -9,6 +8,8 @@ export interface ProductShape {
   QuantityInStock: number
   dateSupplied: Date
   productId: number
+  total: number
+  Quantity: number
 }
 
 export default function MakeSale() {
