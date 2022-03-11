@@ -1,4 +1,5 @@
 import { Button, Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap'
+import CartButton from './makeasale/CartButton'
 
 export default function Appbar() {
   return (
@@ -8,14 +9,11 @@ export default function Appbar() {
         <NavItem>
           <NavLink href="/products">Products</NavLink>
         </NavItem>
-        <NavItem color="white">
-          <NavLink href="/products">Sales</NavLink>
-        </NavItem>
         <NavItem>
           <NavLink href="/products">Summary</NavLink>
         </NavItem>
         <NavItem>
-          <Button>Cart</Button>
+          <CartButton />
         </NavItem>
       </Nav>
     </Navbar>
