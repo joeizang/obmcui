@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react'
-import { Button, Card, CardBody, CardFooter, CardHeader } from 'reactstrap'
+import { Button, Card, CardBody, CardFooter, CardHeader, Col, Input, Label } from 'reactstrap'
 import useLocalStorage from '../../customHooks/useLocalStorage'
 import { ProductShape } from '../../pages/make-sale'
 
@@ -11,6 +11,12 @@ export default function Product({ product }: ProductProps) {
   const [buttonText, setButtonText] = useState('Buy')
   const [buttonColor, setButtonColor] = useState('secondary')
   const [disableButton, setDisableButton] = useState(false)
+  const [qty, setQty] = useState(product.Quantity)
+
+  const changeQuantity = (e: any) => {
+    product.Quantity = parseInt(e.target.value)
+    setQty(parseInt(e.target.value))
+  }
   return (
     <Fragment>
       <Card className="shadow rounded mb-3">
@@ -18,9 +24,31 @@ export default function Product({ product }: ProductProps) {
           {product.productName}
         </CardHeader>
         <CardBody>
-          <span>
-            <b>Product Price: =N= {product.RetailPrice}</b>
-          </span>
+          <Col>
+            <Label
+              size="lg"
+            >
+              <b>Price: {product.RetailPrice}</b>
+            </Label>
+          </Col>
+          
+          <Col sm={10} md={10} lg={10} xl={10}>
+            <Label
+              size="lg"
+              sm={4}
+            >
+              Quantity :
+            </Label>
+            <Input
+             bsSize="lg"
+             size={3}
+             type="number"
+             value={qty}
+             onChange={changeQuantity}
+             className="text-center w-25"
+            />
+          </Col>
+          
         </CardBody>
         <CardFooter>
           <Button

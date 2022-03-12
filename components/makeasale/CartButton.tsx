@@ -30,9 +30,22 @@ export default function CartButton() {
           {cartLength}
         </Badge>
       </Button>
-      <Modal toggle={toggleModal} isOpen={modalVisibility} ref={modalRef} fullscreen="xl">
+      <Modal toggle={toggleModal} isOpen={modalVisibility} ref={modalRef} size="xl">
         <ModalHeader
-          close={<button className="close" color='warning' style={{ borderRadius: '50%'}} onClick={toggleModal}>X</button>}
+          close={
+          <button
+            className="close"
+            color='warning'
+            style={{
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              color: 'white',
+              border: 'red 0px'
+            }}
+          onClick={toggleModal}
+          >
+            X
+          </button>}
         > 
         </ModalHeader>
         <ModalBody>

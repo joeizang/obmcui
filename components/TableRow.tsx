@@ -7,8 +7,8 @@ interface TableRowProps {
 }
 
 export default function TableRow({ product }: TableRowProps) {
-  const [total, setTotal] = useState(0)
-  const [qty, setQty] = useState<number>(1)
+  const [total, setTotal] = useState(product.total)
+  const [qty, setQty] = useState<number>(product.Quantity)
   return (
     <>
       {

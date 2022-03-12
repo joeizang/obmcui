@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Input, Table } from 'reactstrap'
+import { Button, Input, Table } from 'reactstrap'
 import { ProductShape } from '../pages/make-sale'
 import TableRow from './TableRow'
 import TotalRow from './TotalRow'
@@ -9,7 +9,10 @@ interface FinishSaleProps {
 }
 
 export default function FinishSale({ products }: FinishSaleProps) {
-  
+  const [total, setTotal] = useState(0)
+  const calculateTotal = () => {
+    return products.length > 0 ? products.map(p => p.Quantity + p.RetailPrice).reduce((x,y) => x + y) : 0
+  }
   return (
     <>
       <Table striped>
@@ -28,14 +31,16 @@ export default function FinishSale({ products }: FinishSaleProps) {
           <tr>
             <td></td>
             <td></td>
-            <td>Grand Total</td>
-            <TotalRow products={products}/>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <Button onClick={calculateTotal}>
+              Grand Total
+              </Button>
+            </td>
+            <td>
+              <TotalRow
+                products={products}
+              />
+            </td>
           </tr>
         </tbody>
       </Table>
