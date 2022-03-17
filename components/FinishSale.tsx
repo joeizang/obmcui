@@ -32,9 +32,9 @@ export default function FinishSale({ products }: FinishSaleProps) {
             <td></td>
             <td></td>
             <td>
-              <Button onClick={calculateTotal}>
-              Grand Total
-              </Button>
+              <span>
+                <b>Grand Total</b>
+              </span>
             </td>
             <td>
               <TotalRow

@@ -1,5 +1,14 @@
 import { Fragment, useState } from 'react'
-import { Button, Card, CardBody, CardFooter, CardHeader, Col, Input, Label } from 'reactstrap'
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Col,
+  Input,
+  Label,
+} from 'reactstrap'
 import useLocalStorage from '../../customHooks/useLocalStorage'
 import { ProductShape } from '../../pages/make-sale'
 
@@ -25,30 +34,24 @@ export default function Product({ product }: ProductProps) {
         </CardHeader>
         <CardBody>
           <Col>
-            <Label
-              size="lg"
-            >
+            <Label size="lg">
               <b>Price: {product.RetailPrice}</b>
             </Label>
           </Col>
-          
+
           <Col sm={10} md={10} lg={10} xl={10}>
-            <Label
-              size="lg"
-              sm={4}
-            >
-              Quantity :
+            <Label size="lg">
+              <b>Quantity :</b>
             </Label>
             <Input
-             bsSize="lg"
-             size={3}
-             type="number"
-             value={qty}
-             onChange={changeQuantity}
-             className="text-center w-25"
+              bsSize="lg"
+              size={3}
+              type="number"
+              value={qty}
+              onChange={changeQuantity}
+              className="text-center w-50"
             />
           </Col>
-          
         </CardBody>
         <CardFooter>
           <Button
