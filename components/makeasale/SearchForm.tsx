@@ -21,7 +21,7 @@ let defaultProducts = [
     dateSupplied: new Date(),
     productId: 1,
     total: 0,
-    Quantity: 0
+    Quantity: 0,
   },
   {
     productName: 'Pet Sprite',
@@ -31,7 +31,7 @@ let defaultProducts = [
     dateSupplied: new Date(),
     productId: 2,
     total: 0,
-    Quantity: 0
+    Quantity: 0,
   },
   {
     productName: 'Plastic Chairs',
@@ -41,7 +41,7 @@ let defaultProducts = [
     dateSupplied: new Date(),
     productId: 3,
     total: 0,
-    Quantity: 0
+    Quantity: 0,
   },
   {
     productName: 'Tea Mug',
@@ -51,7 +51,7 @@ let defaultProducts = [
     dateSupplied: new Date(),
     productId: 4,
     total: 0,
-    Quantity: 0
+    Quantity: 0,
   },
   {
     productName: 'Non Stick Frying Pan',
@@ -61,7 +61,7 @@ let defaultProducts = [
     dateSupplied: new Date(),
     productId: 5,
     total: 0,
-    Quantity: 0
+    Quantity: 0,
   },
 ]
 
@@ -97,6 +97,7 @@ export default function SearchForm({}: SearchFormProps) {
             <Input
               id="searchInput"
               name="search"
+              bsSize="lg"
               placeholder="Search for a Product..."
               type="text"
               value={searchTerm}

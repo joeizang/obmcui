@@ -1,9 +1,38 @@
 import Link from 'next/link'
-import { ArrowLeftCircleFill, ClipboardPlus } from 'react-bootstrap-icons'
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import { useState } from 'react'
+import {
+  ArrowLeftCircleFill,
+  ClipboardPlus,
+  PlusCircleFill,
+} from 'react-bootstrap-icons'
+import { useMutation } from 'react-query'
+import { Col, FormGroup, Input, Label, Row, Spinner } from 'reactstrap'
 import Layout from '../../components/Layout'
+import { ProductShape } from '../make-sale'
+
+async function createProduct(payload: ProductShape) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  }
+  await fetch('', options)
+}
 
 export default function New() {
+  const [showSpinner, toggleShowSpinner] = useState(false)
+  const mutation = useMutation(createProduct)
+
+  function submitForm() {
+    if (mutation.isLoading) {
+      toggleShowSpinner(!showSpinner)
+    }
+    setTimeout(() => {
+      toggleShowSpinner(false)
+    }, 3000)
+  }
   return (
     <>
       <Layout>
@@ -11,8 +40,9 @@ export default function New() {
           <div className="d-flex justify-context-center justify-content-between">
             <span>
               <Link href="/products">
-                <a className="btn btn-secondary btn-lg">
-                  <ArrowLeftCircleFill /> {'    '} Back
+                <a className="btn infoButton btn-lg">
+                  <ArrowLeftCircleFill color="white" className="text-white" />{' '}
+                  {'    '} Back
                 </a>
               </Link>
             </span>
@@ -109,8 +139,8 @@ export default function New() {
                     name="shelfNumber"
                     id="shelfNumber"
                     placeholder="Pick a shelf number..."
-                  ></Input>
-                  <Label htmlFor="shelfNumber"></Label>
+                  />
+                  <Label htmlFor="shelfNumber">Pick a shelf number</Label>
                 </FormGroup>
               </Col>
             </Row>
@@ -122,18 +152,29 @@ export default function New() {
                   name="comments"
                   id="comments"
                   cols="12"
-                  rows="7"
+                  rows="10"
                   placeholder="Comments"
                 />
                 <Label htmlFor="comments">Comments</Label>
               </FormGroup>
             </Row>
-            <button className="btn btn-secondary btn-block btn-lg">
-              <ClipboardPlus fill="" />
-              Add Product
-            </button>
+            <Row>
+              <button
+                className="btn btn-secondary btn-lg btn-block cardButton"
+                type="button"
+                onClick={submitForm}
+              >
+                <PlusCircleFill /> {'     '}
+                Add Product
+              </button>
+            </Row>
           </form>
         </Row>
+        {showSpinner && (
+          <Row className="mt-5 d-flex justify-content-center">
+            <Spinner size="lg" type="border" color="text-danger" />
+          </Row>
+        )}
       </Layout>
     </>
   )

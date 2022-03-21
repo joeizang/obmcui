@@ -8,7 +8,7 @@ interface ProductSectionProps {
 export default function ProductSection({ itemsForSale }: ProductSectionProps) {
   return (
     <Row tag="section">
-      <div className="d-flex flex-wrap row-cols-3">
+      <div className="d-flex flex-wrap justify-content-start productSection">
         {itemsForSale.length > 0 ? (
           itemsForSale.map((item) => (
             <Product key={item.productId} product={item} />

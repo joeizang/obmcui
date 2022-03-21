@@ -18,7 +18,7 @@ interface ProductProps {
 export default function Product({ product }: ProductProps) {
   const [value, setValue] = useLocalStorage<ProductShape[]>('shopCart', [])
   const [buttonText, setButtonText] = useState('Buy')
-  const [buttonColor, setButtonColor] = useState('secondary')
+  const [buttonColor, setButtonColor] = useState('primary')
   const [disableButton, setDisableButton] = useState(false)
   const [qty, setQty] = useState(product.Quantity)
 
@@ -53,9 +53,10 @@ export default function Product({ product }: ProductProps) {
             />
           </Col>
         </CardBody>
-        <CardFooter>
+        <CardFooter className="p-0">
           <Button
             color={buttonColor}
+            className="cardButton fw-bold btn-lg"
             block
             disabled={disableButton}
             onClick={(e) => {
@@ -63,7 +64,6 @@ export default function Product({ product }: ProductProps) {
               setButtonColor('warning')
               const currentCart = value as ProductShape[]
               currentCart.push(product)
-              console.log('currentCart looks like this ', currentCart)
               setValue(currentCart)
               setDisableButton(true)
             }}

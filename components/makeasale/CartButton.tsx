@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
+import { CartFill } from 'react-bootstrap-icons'
 import {
   Badge,
   Button,
@@ -24,30 +25,41 @@ export default function CartButton() {
   }, [cart.length])
   return (
     <Fragment>
-      <Button onClick={toggleModal}>
+      <Button
+        onClick={toggleModal}
+        color="success"
+        size="lg"
+        className="rounded"
+      >
+        <CartFill /> {'     '}
         Cart{'  '}
-        <Badge pill color="success">
+        <Badge pill color="white" className="text-success">
           {cartLength}
         </Badge>
       </Button>
-      <Modal toggle={toggleModal} isOpen={modalVisibility} ref={modalRef} size="xl">
+      <Modal
+        toggle={toggleModal}
+        isOpen={modalVisibility}
+        ref={modalRef}
+        size="xl"
+      >
         <ModalHeader
           close={
-          <button
-            className="close"
-            color='warning'
-            style={{
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              color: 'white',
-              border: 'red 0px'
-            }}
-          onClick={toggleModal}
-          >
-            X
-          </button>}
-        > 
-        </ModalHeader>
+            <button
+              className="close"
+              color="warning"
+              style={{
+                borderRadius: '50%',
+                backgroundColor: 'red',
+                color: 'white',
+                border: 'red 0px',
+              }}
+              onClick={toggleModal}
+            >
+              X
+            </button>
+          }
+        ></ModalHeader>
         <ModalBody>
           <FinishSale products={cart} />
         </ModalBody>

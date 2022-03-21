@@ -4,13 +4,24 @@ import CartButton from './makeasale/CartButton'
 export default function Appbar() {
   return (
     <Navbar dark expand="md" color="dark">
-      <NavbarBrand href="/">Shop Manager</NavbarBrand>
+      <NavbarBrand href="/" className="fw-bold">
+        Shop Manager
+      </NavbarBrand>
       <Nav>
-        <NavItem>
+        <NavItem className="fw-bold menuItems">
           <NavLink href="/products">Products</NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem className="fw-bold menuItems">
           <NavLink href="/products">Summary</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink></NavLink>
         </NavItem>
         <NavItem>
           <CartButton />

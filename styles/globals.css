@@ -1,16 +1,40 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.menuItems {
+  font-size: 1.52rem;
+  color: whitesmoke;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.menuItems a {
+  color: whitesmoke;
 }
 
-* {
-  box-sizing: border-box;
+.menuItems :hover {
+  color: #593196;
+}
+
+.menuItems :active {
+  color: #593196;
+}
+
+.cardButton {
+  background-color: #593196;
+  border: #593196;
+}
+.cardButton:hover {
+  background-color: #472778;
+  border: #472778;
+}
+
+.infoButton {
+  background-color: #1ba2f6;
+  color: whitesmoke;
+}
+
+.productSection {
+  justify-content: start;
+  gap: 10px 20px;
+}
+
+.checkoutTableHead {
+  background: #593196;
+  color: whitesmoke;
 }

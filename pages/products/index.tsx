@@ -17,8 +17,9 @@ export default function Index() {
       <Row>
         <div className="mt-5">
           <Link href="products/new">
-            <a className="btn btn-secondary btn-lg">
-              <PlusCircleFill className="text-center" /> {'      '}
+            <a className="btn infoButton btn-lg">
+              <PlusCircleFill color="white" className="text-center" />{' '}
+              {'      '}
               Add New Product
             </a>
           </Link>
